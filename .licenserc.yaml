@@ -60,6 +60,7 @@ header:
     - 'karma.conf.js'
     - 'proxy.conf.js'
     - '.helmignore'
+    - '**/CNAME'
     
   comment: on-failure
 
