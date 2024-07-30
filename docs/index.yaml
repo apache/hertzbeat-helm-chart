@@ -32,28 +32,9 @@ entries:
     name: hertzbeat
     sources:
     - https://github.com/apache/hertzbeat
-    - charts.hertzbeat.apache.org
+    - https://charts.hertzbeat.apache.org
     type: application
     urls:
     - hertzbeat-1.6.0.tgz
     version: 1.6.0
-  - apiVersion: v2
-    appVersion: v1.5.0
-    created: "2024-06-11T16:47:50.490415+08:00"
-    description: An open-source, real-time monitoring system with custom monitoring,
-      high performance cluster and agentless capabilities.
-    digest: 306de194b2f99be2f3dde343d638d5b8b85e2cc220541938bdbffd2515da0202
-    home: https://hertzbeat.apache.org/
-    icon: https://raw.githubusercontent.com/apache/hertzbeat/master/home/static/img/hertzbeat-logo.png
-    maintainers:
-    - email: tomsun28@outlook.com
-      name: tom
-    name: hertzbeat
-    sources:
-    - https://github.com/dromara/hertzbeat
-    - https://charts.hertzbeat.apache.org
-    type: application
-    urls:
-    - hertzbeat-1.5.0.tgz
-    version: 1.5.0
 generated: "2024-06-11T16:47:50.485497+08:00"
