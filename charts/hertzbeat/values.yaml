@@ -75,7 +75,7 @@ database:
     subPath: ""
     accessMode: ReadWriteOnce
     size: 4Gi
-    annotations: { }
+    annotations: {}
     resourcePolicy: "keep"
   
   podAnnotations: { }
@@ -100,7 +100,7 @@ tsdb:
     subPath: ""
     accessMode: ReadWriteOnce
     size: 4Gi
-    annotations: { }
+    annotations: {}
     resourcePolicy: "keep"
   
   podAnnotations: { }
@@ -137,7 +137,7 @@ expose:
     enabled: true
     ingressClassName: ""
     host: "hertzbeat.domain"
-    annotations: { }
+    annotations: {}
     tls:
       enabled: true
       secretName: your-tls-secret
