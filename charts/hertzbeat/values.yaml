@@ -32,7 +32,7 @@ manager:
                  dKhaX0csgOCTlCxq20yhmUea6H6JIpSE2Rwp"
   podAnnotations: { }
   podSecurityContext: { }
-  securityContext: { }
+  securityContext: { }  
   resources: { }
   nodeSelector: { }
   tolerations: [ ]
@@ -85,7 +85,7 @@ database:
   nodeSelector: { }
   tolerations: [ ]
   affinity: { }
-
+    
 tsdb:
   image:
     repository: victoriametrics/victoria-metrics
@@ -137,7 +137,7 @@ expose:
     enabled: true
     ingressClassName: ""
     host: "hertzbeat.domain"
-    annotations: {}
+    annotations: {}    
     tls:
       enabled: true
       secretName: your-tls-secret
