@@ -77,7 +77,7 @@ database:
     size: 4Gi
     annotations: {}
     resourcePolicy: "keep"
-
+    
   podAnnotations: { }
   podSecurityContext: { }
   securityContext: { }
