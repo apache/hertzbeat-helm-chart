@@ -1,13 +1,13 @@
-# Helm Chart for Apache HertzBeat
+# Helm Chart for Apache HertzBeat (incubating)
 
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/hertzbeat)](https://artifacthub.io/packages/search?repo=hertzbeat)
 
 <div class="artifacthub-widget" data-url="https://artifacthub.io/packages/helm/hertzbeat/hertzbeat" data-theme="light" data-header="true" data-stars="true" data-responsive="false"><blockquote><p lang="en" dir="ltr"><b>hertzbeat</b>: An open-source, real-time monitoring system with custom monitoring, high performance cluster and agentless capabilities.</p>&mdash; Open in <a href="https://artifacthub.io/packages/helm/hertzbeat/hertzbeat">Artifact Hub</a></blockquote></div><script async src="https://artifacthub.io/artifacthub-widget.js"></script>
 
 
-## What is Apache HertzBeat?
+## What is Apache HertzBeat (incubating)?
 
-[HertzBeat](https://github.com/apache/hertzbeat) is an open source, real-time monitoring system with custom monitoring, high performance cluster, prometheus-compatible and agentless capabilities.
+[Apache HertzBeat](https://github.com/apache/hertzbeat) (incubating) is an easy-to-use, open source, real-time monitoring system with agentless, high performance cluster, prometheus-compatible, offers powerful custom monitoring and status page building capabilities.
 
 ### Features
 
@@ -17,10 +17,10 @@
 * Compatible with the `Prometheus` ecosystem and more, can monitoring what `Prometheus` can monitoring with few clicks on webui.
 * High performance, supports horizontal expansion of multi-collector clusters, multi-isolated network monitoring and cloud-edge collaboration.
 * Provides flexible alarm threshold rules and timely notifications delivered via  `Discord` `Slack` `Telegram` `Email` `Dingtalk` `WeChat` `FeiShu` `Webhook` `SMS` `ServerChan`.
+* Provides powerful status page building capabilities, easily communicate the real-time status of your service to users.
 
 
-> HertzBeat's powerful customization, multi-type support, high performance, easy expansion, and low coupling, aims to help users quickly build their own monitoring system.      
-> We also provide **[SaaS Monitoring Cloud](https://console.tancloud.cn)**, users no longer need to deploy a cumbersome monitoring system to monitor their resources. **[Get started online for free](https://console.tancloud.cn)**.
+> HertzBeat's powerful customization, multi-type support, high performance, easy expansion, and low coupling, aims to help developers and teams quickly build their own monitoring system.
 
 ## Helm Chart for HertzBeat
 
@@ -60,7 +60,7 @@ The external URL for HertzBeat core service is used to:
 
 Format: `protocol://domain[:port]`. Usually:
 
-- if service exposed via `Ingress`, the `domain` should be the value of `expose.ingress.hosts.core`
+- if service exposed via `Ingress`, the `domain` should be the value of `expose.ingress.hosts`
 - if service exposed via `ClusterIP`, the `domain` should be the value of `expose.clusterIP.name`
 - if service exposed via `NodePort`, the `domain` should be the IP address of one Kubernetes node
 - if service exposed via `LoadBalancer`, set the `domain` as your own domain name and add a CNAME record to map the domain name to the one you got from the cloud provider
@@ -95,7 +95,7 @@ The following table lists the configurable parameters of the HertzBeat chart and
 | Parameter                             | Description                                                                                                                                                                                                     | Default         |
 |---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | **Expose**                            |                                                                                                                                                                                                                 |                 |
-| `expose.type`                         | How to expose the service: `ingress`, `clusterIP`, `nodePort` or `loadBalancer`, other values will be ignored and the creation of service will be skipped.                                                      | `ingress`       |
+| `expose.type`                         | How to expose the service: `Ingress`, `ClusterIP`, `NodePort` or `LoadBalancer`, other values will be ignored and the creation of service will be skipped.                                                      | `Ingress`       |
 | `expose.clusterIP.name`               | The name of ClusterIP service                                                                                                                                                                                   | `hertzbeat`     |
 | `expose.clusterIP.annotations`        | The annotations attached to the ClusterIP service                                                                                                                                                               | {}              |
 | `expose.clusterIP.ports.port`         | The service port HertzBeat listens on when serving HTTP                                                                                                                                                         | `80`            |
