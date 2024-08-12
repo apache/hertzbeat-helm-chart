@@ -160,11 +160,11 @@ The following table lists the configurable parameters of the HertzBeat chart and
 [helm]: https://helm.sh/
 
 
-### Build Pages
+### Release and Build Pages
 
 1. `helm package charts/* -d docs`
 2. `helm repo index docs`
-3. `commit and push change`
+3. `commit and pr change`
 
 
 ### Build Local
