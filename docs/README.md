@@ -1,13 +1,13 @@
-# Helm Chart for HertzBeat
+# Helm Chart for Apache HertzBeat
 
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/hertzbeat)](https://artifacthub.io/packages/search?repo=hertzbeat)
 
 <div class="artifacthub-widget" data-url="https://artifacthub.io/packages/helm/hertzbeat/hertzbeat" data-theme="light" data-header="true" data-stars="true" data-responsive="false"><blockquote><p lang="en" dir="ltr"><b>hertzbeat</b>: An open-source, real-time monitoring system with custom monitoring, high performance cluster and agentless capabilities.</p>&mdash; Open in <a href="https://artifacthub.io/packages/helm/hertzbeat/hertzbeat">Artifact Hub</a></blockquote></div><script async src="https://artifacthub.io/artifacthub-widget.js"></script>
 
 
-## What is HertzBeat?
+## What is Apache HertzBeat?
 
-[HertzBeat](https://github.com/dromara/hertzbeat) is an open source, real-time monitoring system with custom monitoring, high performance cluster, prometheus-compatible and agentless capabilities.
+[HertzBeat](https://github.com/apache/hertzbeat) is an open source, real-time monitoring system with custom monitoring, high performance cluster, prometheus-compatible and agentless capabilities.
 
 ### Features
 
@@ -24,7 +24,7 @@
 
 ## Helm Chart for HertzBeat
 
-This [Helm](https://github.com/kubernetes/helm) chart installs [HertzBeat](https://github.com/dromara/hertzbeat) in a Kubernetes cluster. Welcome to [contribute](https://github.com/dromara/hertzbeat/tree/master/script/helm) to Helm Chart for HertzBeat.
+This [Helm](https://github.com/kubernetes/helm) chart installs [HertzBeat](https://github.com/apache/hertzbeat) in a Kubernetes cluster. Welcome to [contribute](https://github.com/apache/hertzbeat/tree/master/script/helm) to Helm Chart for HertzBeat.
 
 ## Prerequisites
 
@@ -155,7 +155,6 @@ The following table lists the configurable parameters of the HertzBeat chart and
 
 
 [resources]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-[hertzbeat]: https://github.com/dromara/hertzbeat/
+[hertzbeat]: https://github.com/apache/hertzbeat/
 [artifacthub]: https://artifacthub.io/
 [helm]: https://helm.sh/
-
