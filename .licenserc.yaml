@@ -61,6 +61,7 @@ header:
     - 'proxy.conf.js'
     - '.helmignore'
     - '**/CNAME'
+    - 'docs/index.yaml'
     
   comment: on-failure
 
