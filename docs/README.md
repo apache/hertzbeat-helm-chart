@@ -90,7 +90,8 @@ helm uninstall hertzbeat
 
 ## Configuration
 
-The following table lists the configurable parameters of the HertzBeat chart and the default values.
+The following table lists the configurable parameters of the HertzBeat chart and the default values.  
+Config Parameter via `--set`, eg: `--set expose.type=NodePort`
 
 | Parameter                             | Description                                                                                                                                                                                                     | Default         |
 |---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
