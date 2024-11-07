@@ -46,15 +46,19 @@ data:
           on-profile: cluster
     
     collector:
+      info:
+        version: ${COLLECTOR_VERSION:1.6.1}
+        ip: ${COLLECTOR_IP:}
       dispatch:
         entrance:
           netty:
             enabled: true
             identity: ${IDENTITY:}
             mode: ${MODE:public}
-            manager-host: ${MANAGER_HOST:127.0.0.1}
+            manager-host: ${MANAGER_HOST:}
             manager-port: ${MANAGER_PORT:1158}
     
     common:
       queue:
         type: netty
+        

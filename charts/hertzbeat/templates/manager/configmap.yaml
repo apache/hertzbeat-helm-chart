@@ -96,14 +96,11 @@ data:
           - classpath:db/migration/{vendor}    
       mail:
         # Attention: this is mail server address.
-        # 请注意此为邮件服务器地址：qq邮箱为 smtp.qq.com qq 企业邮箱为 smtp.exmail.qq.com
         host: smtp.qq.com
         username: tancloud@qq.com
         # Attention: this is not email account password, this requires an email authorization code
-        # 请注意此非邮箱账户密码 此需填写邮箱授权码
         password: your-password
         #Attention: Tencent mail smtps 465,smtp 587
-        #请注意腾讯邮箱465为smtps,587为smtp
         port: 587
         properties:
           mail:
@@ -114,18 +111,11 @@ data:
     
     common:
       queue:
-        # memory or kafka
         type: memory
-        # properties when queue type is kafka
-        kafka:
-          servers: 127.0.0.1:9092
-          metrics-data-topic: async-metrics-data
-          alerts-data-topic: async-alerts-data
     
     warehouse:
       store:
         # store history metrics data, enable only one below
-        # 存储历史数据方式, 下方只能enabled启用一种方式
         jpa:
           enabled: false
         victoria-metrics:
@@ -162,21 +152,26 @@ data:
           expire-time: '30d'
           replication: 1
     
-        # store real-time metrics data, enable only one below
-        # 存储实时数据方式, 下方只能enabled启用一种方式
+      # store real-time metrics data, enable only one below
+      real-time:
         memory:
           enabled: true
           init-size: 16
         redis:
           enabled: false
-          host: 127.0.0.1
-          port: 6379
+          # redis mode: single, sentinel, cluster. Default is single
+          mode: single
+          # separate each address with comma when using cluster mode, eg: 127.0.0.1:6379,127.0.0.1:6380
+          address: 127.0.0.1:6379
+          # enter master name when using sentinel mode
+          masterName: mymaster
           password: 123456
+          # redis db index, default: DB0
           db: 0
     
     alerter:
       # custom console url
-      console-url: https://console.tancloud.cn
+      console-url: https://console.tancloud.io
       # we work
       we-work-webhook-url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=
       # ding ding talk
@@ -187,7 +182,7 @@ data:
       telegram-webhook-url: https://api.telegram.org/bot%s/sendMessage
       # discord
       discord-webhook-url: https://discord.com/api/v9/channels/%s/messages
-      # server酱
+      # serverChan
       server-chan-webhook-url: https://sctapi.ftqq.com/%s.send
       # gotify
       gotify-webhook-url: http://127.0.0.1/message?token=%s
@@ -196,6 +191,12 @@ data:
       server:
         enabled: true
         port: 1158
+        
+    grafana:
+      enabled: false
+      url: http://127.0.0.1:3000
+      username: admin
+      password: admin
 
         
   sureness.yml: |+

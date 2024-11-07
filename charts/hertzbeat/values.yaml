@@ -27,16 +27,16 @@ manager:
     username: "admin"
     password: "hertzbeat"
   jwtSecretKey: "CyaFv0bwq2Eik0jdrKUtsA6dx3sDJeFV143R
-                 LnfKefTjsIfJLBa2YkhEqEGtcHDTNe4CU6+9
-                 8tVt4bisXQ13rbN0oxhUZR73M6EByXIO+SV5
-                 dKhaX0csgOCTlCxq20yhmUea6H6JIpSE2Rwp"
-  podAnnotations: { }
-  podSecurityContext: { }
-  securityContext: { }  
-  resources: { }
-  nodeSelector: { }
-  tolerations: [ ]
-  affinity: { }
+    LnfKefTjsIfJLBa2YkhEqEGtcHDTNe4CU6+9
+    8tVt4bisXQ13rbN0oxhUZR73M6EByXIO+SV5
+    dKhaX0csgOCTlCxq20yhmUea6H6JIpSE2Rwp"
+  podAnnotations: {}
+  podSecurityContext: {}
+  securityContext: {}
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
 
 collector:
   image:
@@ -51,14 +51,14 @@ collector:
     maxReplicas: 20
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
-  
-  podAnnotations: { }
-  podSecurityContext: { }
-  securityContext: { }
-  resources: { }
-  nodeSelector: { }
-  tolerations: [ ]
-  affinity: { }
+
+  podAnnotations: {}
+  podSecurityContext: {}
+  securityContext: {}
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
 
 database:
   image:
@@ -77,14 +77,14 @@ database:
     size: 4Gi
     annotations: {}
     resourcePolicy: "keep"
-    
-  podAnnotations: { }
-  podSecurityContext: { }
-  securityContext: { }
-  resources: { }
-  nodeSelector: { }
-  tolerations: [ ]
-  affinity: { }
+
+  podAnnotations: {}
+  podSecurityContext: {}
+  securityContext: {}
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
 
 tsdb:
   image:
@@ -102,14 +102,14 @@ tsdb:
     size: 4Gi
     annotations: {}
     resourcePolicy: "keep"
-  
-  podAnnotations: { }
-  podSecurityContext: { }
-  securityContext: { }
-  resources: { }
-  nodeSelector: { }
-  tolerations: [ ]
-  affinity: { }
+
+  podAnnotations: {}
+  podSecurityContext: {}
+  securityContext: {}
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
 
 # Expose Network
 expose:
@@ -132,12 +132,12 @@ expose:
     ports:
       # The service port Harbor listens on when serving HTTP
       port: 1157
-    sourceRanges: [ ]
+    sourceRanges: []
   ingress:
     enabled: true
     ingressClassName: ""
     host: "hertzbeat.domain"
-    annotations: {}    
+    annotations: {}
     tls:
       enabled: true
       secretName: your-tls-secret
