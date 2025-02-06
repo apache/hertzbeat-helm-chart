@@ -63,7 +63,7 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /var/lib/postgresql/data
-          subPath: ""
+          subPath: {{ .Values.database.persistence.subPath }}
         - mountPath: /docker-entrypoint-initdb.d/schema.sql
           subPath: schema.sql
           name: schema
