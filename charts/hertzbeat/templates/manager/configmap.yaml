@@ -44,6 +44,10 @@ data:
         exclude: org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
       freemarker:
         enabled: false
+      servlet:
+        multipart:
+          max-file-size: 100MB
+          max-request-size: 100MB
     management:
       health:
         mail:
@@ -239,6 +243,14 @@ data:
       - /api/status/page/**===post===[admin,user]
       - /api/status/page/**===put===[admin,user]
       - /api/status/page/**===delete===[admin]
+      - /api/grafana/**===get===[admin,user,guest]
+      - /api/grafana/**===post===[admin,user]
+      - /api/grafana/**===put===[admin,user]
+      - /api/grafana/**===delete===[admin]
+      - /api/bulletin/**===get===[admin,user,guest]
+      - /api/bulletin/**===post===[admin,user]
+      - /api/bulletin/**===put===[admin,user]
+      - /api/bulletin/**===delete===[admin]
     
     # config the resource restful api that need bypass auth protection
     # rule: api===method 
@@ -251,6 +263,7 @@ data:
       - /api/apps/hierarchy===get
       - /api/push/**===*
       - /api/status/page/public/**===*
+      - /api/manager/sse/**===*
       # web ui resource
       - /===get
       - /assets/**===get
