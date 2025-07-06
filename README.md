@@ -172,5 +172,5 @@ Config Parameter via `--set`, eg: `--set expose.type=NodePort`
 
 1. `cd charts`
 2. `helm template --debug hertzbeat`
-3. `helm upgrade --install demo ./hertzbeat`
+3. `helm upgrade --set expose.type=NodePort --install demo ./hertzbeat`
 4. `helm uninstall demo`

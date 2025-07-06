@@ -2,8 +2,26 @@ apiVersion: v1
 entries:
   hertzbeat:
   - apiVersion: v2
+    appVersion: 1.7.2
+    created: "2025-07-06T18:38:42.318946+08:00"
+    description: An open-source, real-time monitoring system with custom monitoring,
+      high performance cluster and agentless capabilities.
+    digest: 61a515ad780013cf753495dc78268f9949f0bca439d7e3e5d381c276100af297
+    home: https://hertzbeat.apache.org/
+    icon: https://raw.githubusercontent.com/apache/hertzbeat/master/home/static/img/hertzbeat-logo.png
+    maintainers:
+    - email: dev@hertzbeat.apache.org
+      name: hertzbeat
+    name: hertzbeat
+    sources:
+    - https://github.com/apache/hertzbeat
+    type: application
+    urls:
+    - hertzbeat-1.7.2.tgz
+    version: 1.7.2
+  - apiVersion: v2
     appVersion: 1.7.1
-    created: "2025-06-11T00:12:15.987744+08:00"
+    created: "2025-07-06T18:38:42.318299+08:00"
     description: An open-source, real-time monitoring system with custom monitoring,
       high performance cluster and agentless capabilities.
     digest: c88cf892a5dd7dd0f2b8c4f5c5e8f60bf1bf569b3075416b626fbd0573c801d2
@@ -21,7 +39,7 @@ entries:
     version: 1.7.1
   - apiVersion: v2
     appVersion: 1.7.0
-    created: "2025-06-11T00:12:15.98687+08:00"
+    created: "2025-07-06T18:38:42.317657+08:00"
     description: An open-source, real-time monitoring system with custom monitoring,
       high performance cluster and agentless capabilities.
     digest: 17bffac6149901c55b503c68798aede2cc787514207a1c268bdd1f8a1f9ad78a
@@ -39,7 +57,7 @@ entries:
     version: 1.7.0
   - apiVersion: v2
     appVersion: v1.6.1
-    created: "2025-06-11T00:12:15.9863+08:00"
+    created: "2025-07-06T18:38:42.316904+08:00"
     description: An open-source, real-time monitoring system with custom monitoring,
       high performance cluster and agentless capabilities.
     digest: e9dcc170aa497b566687f0358262ed7e9358a47ef689ad4f81aa2f2822fc815f
@@ -57,7 +75,7 @@ entries:
     version: 1.6.1
   - apiVersion: v2
     appVersion: v1.6.0
-    created: "2025-06-11T00:12:15.98536+08:00"
+    created: "2025-07-06T18:38:42.316133+08:00"
     description: An open-source, real-time monitoring system with custom monitoring,
       high performance cluster and agentless capabilities.
     digest: 5124d17485fce48621af0ed7fe27dfddd3d7c77d04b2a7372867331cd3ed13af
@@ -73,4 +91,4 @@ entries:
     urls:
     - hertzbeat-1.6.0.tgz
     version: 1.6.0
-generated: "2025-06-11T00:12:15.983737+08:00"
+generated: "2025-07-06T18:38:42.314813+08:00"
