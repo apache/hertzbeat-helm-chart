@@ -1,11 +1,11 @@
-# Helm Chart for Apache HertzBeat (incubating)
+# Helm Chart for Apache HertzBeat
 
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/hertzbeat)](https://artifacthub.io/packages/search?repo=hertzbeat)
 
 <div class="artifacthub-widget" data-url="https://artifacthub.io/packages/helm/hertzbeat/hertzbeat" data-theme="light" data-header="true" data-stars="true" data-responsive="false"><blockquote><p lang="en" dir="ltr"><b>hertzbeat</b>: An open-source, real-time monitoring system with custom monitoring, high performance cluster and agentless capabilities.</p>&mdash; Open in <a href="https://artifacthub.io/packages/helm/hertzbeat/hertzbeat">Artifact Hub</a></blockquote></div><script async src="https://artifacthub.io/artifacthub-widget.js"></script>
 
 
-## What is Apache HertzBeat (incubating)?
+## What is Apache HertzBeat?
 
 [Apache HertzBeat](https://github.com/apache/hertzbeat) (incubating) is an easy-to-use, open source, real-time monitoring system with agentless, high performance cluster, prometheus-compatible, offers powerful custom monitoring and status page building capabilities.
 
