@@ -65,15 +65,7 @@ data:
               tool: true
               resource: true
               prompt: true
-              completion: true
-        chat:
-          client:
-            enabled: false
-        openai:
-          api-key: OPENAI_API_KEY
-          chat:
-            options:
-              model: gpt-4.1-nano-2025-04-14        
+              completion: true    
       
     management:
       health:
