@@ -47,7 +47,7 @@ data:
     
     collector:
       info:
-        version: ${COLLECTOR_VERSION:1.7.3}
+        version: ${COLLECTOR_VERSION:1.8.0}
         ip: ${COLLECTOR_IP:}
       dispatch:
         entrance:
