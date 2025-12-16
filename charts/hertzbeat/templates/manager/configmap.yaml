@@ -53,20 +53,13 @@ data:
           server:
             enabled: true
             stdio: false
-            name: sse-mcp-server
+            protocol: streamable
+            streamable-http:
+              mcp-endpoint: /api/mcp
+            name: hertzbeat-mcp-server
             version: 1.0.0
-            resource-change-notification: true
-            tool-change-notification: true
-            prompt-change-notification: true
-            sse-endpoint: /api/sse
-            sse-message-endpoint: /api/mcp/message
             type: SYNC
-            capabilities:
-              tool: true
-              resource: true
-              prompt: true
-              completion: true    
-      
+
     management:
       health:
         mail:
@@ -79,7 +72,7 @@ data:
               - 'health'
               - 'env'
         enabled-by-default: on
-    
+
     sureness:
       container: jakarta_servlet
       auths:
@@ -88,13 +81,13 @@ data:
         - jwt
       jwt:
         secret: {{ .Values.manager.jwtSecretKey }}
-    
+
     ---
     spring:
       config:
         activate:
           on-profile: prod
-    
+
       datasource:
         driver-class-name: org.postgresql.Driver
         username: root
@@ -116,7 +109,7 @@ data:
         baseline-on-migrate: true
         baseline-version: 1
         locations:
-          - classpath:db/migration/{vendor}    
+          - classpath:db/migration/{vendor}
       mail:
         # Attention: this is mail server address.
         host: smtp.qq.com
@@ -131,11 +124,11 @@ data:
               socketFactoryClass: javax.net.ssl.SSLSocketFactory
               ssl:
                 enable: true
-    
+
     common:
       queue:
         type: memory
-    
+
     warehouse:
       store:
         # store history metrics data, enable only one below
@@ -177,7 +170,7 @@ data:
           password: root
           expire-time: '30d'
           replication: 1
-    
+
       # store real-time metrics data, enable only one below
       real-time:
         memory:
@@ -194,7 +187,7 @@ data:
           password: 123456
           # redis db index, default: DB0
           db: 0
-    
+
     alerter:
       # custom console url
       console-url: https://console.tancloud.io
@@ -212,19 +205,19 @@ data:
       server-chan-webhook-url: https://sctapi.ftqq.com/%s.send
       # gotify
       gotify-webhook-url: http://127.0.0.1/message?token=%s
-    
+
     scheduler:
       server:
         enabled: true
         port: 1158
-        
+
     grafana:
       enabled: false
       url: http://127.0.0.1:3000
       username: admin
       password: admin
 
-        
+
   sureness.yml: |+
     resourceRole:
       - /api/account/auth/refresh===post===[admin,user,guest]
@@ -273,12 +266,18 @@ data:
       - /api/bulletin/**===post===[admin,user]
       - /api/bulletin/**===put===[admin,user]
       - /api/bulletin/**===delete===[admin]
-    
+      - /api/mcp/**===get===[admin]
+      - /api/mcp/**===post===[admin]
+      - /api/chat/**===get===[admin,user]
+      - /api/chat/**===post===[admin]
+      - /api/logs/ingest/**===post===[admin,user]
+
     # config the resource restful api that need bypass auth protection
-    # rule: api===method 
+    # rule: api===method
     # eg: /api/v1/source3===get means /api/v1/source3===get can be access by anyone, no need auth.
     excludedResource:
       - /api/alert/sse/**===*
+      - /api/logs/sse/**===*
       - /api/account/auth/**===*
       - /api/i18n/**===get
       - /api/apps/hierarchy===get
@@ -295,6 +294,7 @@ data:
       - /setting/**===get
       - /passport/**===get
       - /status/**===get
+      - /log/**===get
       - /**/*.html===get
       - /**/*.js===get
       - /**/*.css===get
@@ -322,16 +322,3 @@ data:
       - appId: {{ .Values.manager.account.username }}
         credential: {{ .Values.manager.account.password }}
         role: [admin]
-      - appId: tom
-        credential: hertzbeat
-        role: [user]
-      - appId: guest
-        credential: hertzbeat
-        role: [guest]
-      - appId: lili
-        # credential = MD5(password + salt)
-        # plain password: hertzbeat
-        # attention: digest authentication does not support salted encrypted password accounts
-        credential: 94C6B34E7A199A9F9D4E1F208093B489
-        salt: 123
-        role: [user]
