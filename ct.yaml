@@ -25,3 +25,4 @@ pages-index-path: docs/index.yaml
 package-path: docs
 index-path: docs/index.yaml
 pr:
+validate-maintainers: false

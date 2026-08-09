@@ -25,25 +25,32 @@ on:
 
 jobs:
   lint-test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Install Helm
-        uses: azure/setup-helm@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: 3.9
-          
+          python-version: 3.11
+
+      # helm is preinstalled on the hosted runner; chart-testing is installed from
+      # its release tarball because the ASF actions allowlist rejects third-party
+      # actions like helm/chart-testing-action and azure/setup-helm
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.6.1      
-      
+        run: |
+          CT_VERSION=3.11.0
+          curl -sSLo /tmp/ct.tgz "https://github.com/helm/chart-testing/releases/download/v${CT_VERSION}/chart-testing_${CT_VERSION}_linux_amd64.tar.gz"
+          mkdir -p /tmp/ct
+          tar -xzf /tmp/ct.tgz -C /tmp/ct
+          sudo mv /tmp/ct/ct /usr/local/bin/ct
+          sudo mkdir -p /etc/ct
+          sudo cp /tmp/ct/etc/chart_schema.yaml /tmp/ct/etc/lintconf.yaml /etc/ct/
+          pip install yamllint yamale
+
+
       - name: Run chart-testing (lint)
         run: ct lint --config ct.yaml
 
@@ -52,7 +59,7 @@ jobs:
         run: |
           changed=$(ct list-changed --config ct.yaml)
           if [[ -n "$changed" ]]; then
-            echo "::set-output name=changed::true"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Install k8s
