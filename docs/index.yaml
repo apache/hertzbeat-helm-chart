@@ -2,6 +2,24 @@ apiVersion: v1
 entries:
   hertzbeat:
   - apiVersion: v2
+    appVersion: 1.8.0
+    created: "2026-08-16T23:09:52.267582-07:00"
+    description: An AI-powered next-generation open source real-time observability
+      system.
+    digest: a5771d588da7b34235fd07a0a0a98c73a29d54fab3ea552501ee8e0ae836e8fc
+    home: https://hertzbeat.apache.org/
+    icon: https://raw.githubusercontent.com/apache/hertzbeat/master/home/static/img/hertzbeat-logo.png
+    maintainers:
+    - email: dev@hertzbeat.apache.org
+      name: hertzbeat
+    name: hertzbeat
+    sources:
+    - https://github.com/apache/hertzbeat
+    type: application
+    urls:
+    - hertzbeat-1.8.1.tgz
+    version: 1.8.1
+  - apiVersion: v2
     appVersion: 1.7.3
     created: "2025-09-09T00:39:09.737234+08:00"
     description: An open-source, real-time monitoring system with custom monitoring,
@@ -109,4 +127,4 @@ entries:
     urls:
     - hertzbeat-1.6.0.tgz
     version: 1.6.0
-generated: "2025-09-09T00:39:09.730587+08:00"
+generated: "2026-08-16T23:09:52.267582-07:00"
