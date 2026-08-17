@@ -97,9 +97,9 @@ data:
     
       datasource:
         driver-class-name: org.postgresql.Driver
-        username: root
-        password: {{ .Values.database.rootPassword }}
-        url: jdbc:postgresql://{{ include "hertzbeat.database" . }}:5432/hertzbeat
+        username: {{ include "hertzbeat.db.username" . }}
+        password: {{ include "hertzbeat.db.password" . }}
+        url: {{ include "hertzbeat.db.url" . }}
         hikari:
           max-lifetime: 120000
       jpa:

@@ -65,3 +65,54 @@ Selector labels
 app.kubernetes.io/name: {{ include "hertzbeat.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+{{/*
+Database helper functions - simplifies external database configuration
+*/}}
+{{- define "hertzbeat.db.isExternal" -}}
+{{- $hostValue := .Values.database.external.host.value | default "" -}}
+{{- $hostFrom := .Values.database.external.host.valueFrom.secretKeyRef.key | default "" -}}
+{{- or $hostValue $hostFrom -}}
+{{- end -}}
+
+{{- define "hertzbeat.db.username" -}}
+{{- if include "hertzbeat.db.isExternal" . -}}
+{{- $usernameFrom := .Values.database.external.username.valueFrom.secretKeyRef.key | default "" -}}
+{{- if $usernameFrom -}}
+${DATABASE_USERNAME}
+{{- else -}}
+{{- .Values.database.external.username.value | default "root" -}}
+{{- end -}}
+{{- else -}}
+root
+{{- end -}}
+{{- end -}}
+
+{{- define "hertzbeat.db.password" -}}
+{{- if include "hertzbeat.db.isExternal" . -}}
+{{- $passwordFrom := .Values.database.external.password.valueFrom.secretKeyRef.key | default "" -}}
+{{- if $passwordFrom -}}
+${DATABASE_PASSWORD}
+{{- else -}}
+{{- .Values.database.external.password.value | default "" -}}
+{{- end -}}
+{{- else -}}
+{{- .Values.database.rootPassword -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "hertzbeat.db.url" -}}
+{{- if include "hertzbeat.db.isExternal" . -}}
+{{- $hostValue := .Values.database.external.host.value | default "" -}}
+{{- $hostFrom := .Values.database.external.host.valueFrom.secretKeyRef.key | default "" -}}
+{{- $databaseValue := .Values.database.external.database.value | default "hertzbeat" -}}
+{{- $portValue := .Values.database.external.port.value | default 5432 -}}
+{{- if $hostValue -}}
+jdbc:postgresql://{{ $hostValue }}:{{ $portValue }}/{{ $databaseValue }}
+{{- else -}}
+jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+{{- end -}}
+{{- else -}}
+jdbc:postgresql://{{ include "hertzbeat.database" . }}:5432/hertzbeat
+{{- end -}}
+{{- end -}}

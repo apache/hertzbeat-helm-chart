@@ -73,6 +73,42 @@ spec:
               name: sureness
           resources:
             {{- toYaml .Values.manager.resources | nindent 12 }}
+          env:
+            {{- if .Values.database.external.host.valueFrom.secretKeyRef.key }}
+            - name: DATABASE_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.external.host.valueFrom.secretKeyRef.name }}
+                  key: {{ .Values.database.external.host.valueFrom.secretKeyRef.key }}
+            {{- end }}
+            {{- if .Values.database.external.port.valueFrom.secretKeyRef.key }}
+            - name: DATABASE_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.external.port.valueFrom.secretKeyRef.name }}
+                  key: {{ .Values.database.external.port.valueFrom.secretKeyRef.key }}
+            {{- end }}
+            {{- if .Values.database.external.username.valueFrom.secretKeyRef.key }}
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.external.username.valueFrom.secretKeyRef.name }}
+                  key: {{ .Values.database.external.username.valueFrom.secretKeyRef.key }}
+            {{- end }}
+            {{- if .Values.database.external.password.valueFrom.secretKeyRef.key }}
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.external.password.valueFrom.secretKeyRef.name }}
+                  key: {{ .Values.database.external.password.valueFrom.secretKeyRef.key }}
+            {{- end }}
+            {{- if .Values.database.external.database.valueFrom.secretKeyRef.key }}
+            - name: DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.external.database.valueFrom.secretKeyRef.name }}
+                  key: {{ .Values.database.external.database.valueFrom.secretKeyRef.key }}
+            {{- end }}
       volumes:
         - name: application
           configMap:

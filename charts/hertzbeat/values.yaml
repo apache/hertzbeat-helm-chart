@@ -86,6 +86,38 @@ database:
   tolerations: []
   affinity: {}
 
+  external:
+    host:
+      value: ""
+      valueFrom:
+        secretKeyRef:
+          name: hertzbeat-secret
+          key: ""
+    port:
+      value: 5432
+      valueFrom:
+        secretKeyRef:
+          name: hertzbeat-secret
+          key: ""
+    username:
+      value: "root"
+      valueFrom:
+        secretKeyRef:
+          name: hertzbeat-secret
+          key: ""
+    password:
+      value: ""
+      valueFrom:
+        secretKeyRef:
+          name: hertzbeat-secret
+          key: ""
+    database:
+      value: "hertzbeat"
+      valueFrom:
+        secretKeyRef:
+          name: hertzbeat-secret
+          key: ""
+
 tsdb:
   image:
     repository: victoriametrics/victoria-metrics

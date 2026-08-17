@@ -15,7 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
-{{- if .Values.database.persistence.enabled }}
+{{- $externalHostValue := .Values.database.external.host.value | default "" -}}
+{{- $externalHostFrom := .Values.database.external.host.valueFrom.secretKeyRef.key | default "" -}}
+{{- if and .Values.database.persistence.enabled (not (or $externalHostValue $externalHostFrom)) }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:

@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+{{- $externalHostValue := .Values.database.external.host.value | default "" -}}
+{{- $externalHostFrom := .Values.database.external.host.valueFrom.secretKeyRef.key | default "" -}}
+{{- if not (or $externalHostValue $externalHostFrom) }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -34,3 +37,4 @@ data:
     EXCEPTION WHEN duplicate_database THEN RAISE NOTICE '%, skipping', SQLERRM USING ERRCODE = SQLSTATE;
     END
     $$;
+{{- end }}
