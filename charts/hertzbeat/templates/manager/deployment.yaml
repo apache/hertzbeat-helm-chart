@@ -53,6 +53,11 @@ spec:
             - name: cluster
               containerPort: 1158
               protocol: TCP
+          startupProbe:
+            tcpSocket:
+              port: 1157
+            periodSeconds: 10
+            failureThreshold: 30
           livenessProbe:
             tcpSocket:
               port: 1157

@@ -51,6 +51,11 @@ spec:
           ports:
             - containerPort: 1159
               protocol: TCP
+          startupProbe:
+            tcpSocket:
+              port: 1159
+            periodSeconds: 10
+            failureThreshold: 30
           livenessProbe:
             tcpSocket:
               port: 1159
